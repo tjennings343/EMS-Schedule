@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  root 'sessions#index'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/signup' => 'captains#new'
+
+  
   resources :trucks
   resources :shifts
   resources :captains
