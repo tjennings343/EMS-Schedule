@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root 'sessions#index'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  get '/signup' => 'captains#new'
+  get '/createaccount' => 'captains#new'
+  delete '/logout' => 'sessions#destroy'
 
   
   resources :trucks
