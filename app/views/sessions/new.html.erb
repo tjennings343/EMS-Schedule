@@ -1,5 +1,6 @@
 <h1>Please Log In to Continue</h1>
  
+ <p><%= flash[:error] %></p>
 
 <%= form_for (@captain), url: '/login' do |f| %>
     <%= f.label :email %>
