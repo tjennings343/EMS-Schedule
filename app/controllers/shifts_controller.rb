@@ -1,6 +1,24 @@
 class ShiftsController < ApplicationController
 
     def new
-        
+        @shift = Shift.new
+        @shift.build_truck
+    end
+
+    def create
+        @shift = Shift.new(shift_params)
+        @shift.captain_id = session[:captain_id]
+        if @shift.save!
+            redirect_to shift_path(@shift)
+        else
+            render :new
+        end
+    end
+
+
+    private
+
+    def shift_params
+        params.require(:shift).permit(:shift_name, :shift_date, :truck_id, truck_attributes: [:unit_number])
     end
 end

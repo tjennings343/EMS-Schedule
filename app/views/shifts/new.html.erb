@@ -1,13 +1,20 @@
 <h1>Create a Shift</h1>
 
-<%= form_for (@shif) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
-    <%= f.label :date %>
-    <%= f. :email %><br>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+<%= form_for (@shift) do |f| %>
+    <%= f.label :shift_name %>
+    <%= f.text_field :shift_name %><br>
+    <%= f.label :shift_date %>
+    <%= f.text_field :shift_date %><br>
 
-    <%= f.submit "Create Account" %>
+    <p> Choose a Truck for the shift: </p>
+    <%= f.collection_select :truck_id, Truck.all, :id, :unit_number %>
+
+    <p> Or Create a new Truck: </p>
+    <%= f.fields_for :truck do |t| %>
+    <%= t.label :unit_number %>
+    <%= t.text_field :unit_number %>
+    <% end %> 
+
+    <%= f.submit "Create Shift" %>
 
 <% end %>
