@@ -1,0 +1,8 @@
+<h1>Active Trucks</h1>
+
+<% @trucks.each do |truck| %>
+<h4><%= link_to truck.unit_number, truck_path(truck) %></h4>
+<p><%= link_to truck.shifts, truck_shifts_path(truck) %></p>
+<% end %>
+
+

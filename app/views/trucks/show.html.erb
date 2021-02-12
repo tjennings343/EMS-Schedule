@@ -1,0 +1,10 @@
+<h1><%= @truck.unit_number %> Shifts</h1>
+<%= link_to "New Shift", new_truck_shift_path(@truck) %>
+<% @truck.shifts.each do |s| %>
+<h4><%= s.shift_name %></h4>
+<% end %>
+
+
+
+
+

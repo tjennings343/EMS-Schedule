@@ -1,8 +1,20 @@
 class ShiftsController < ApplicationController
 
+
+    def index
+        if params[:truck_id]
+            @shifts = Truck.find(params[:truck_id]).shifts
+        else
+        @shifts = Shift.all
+        end
+    end
+
     def new
-        @shift = Shift.new
-        @shift.build_truck
+        @shift = Shift.new(truck_id: params[:truck_id])
+    end
+
+    def show
+        @shift = Shift.find_by_id(params[:id])
     end
 
     def create

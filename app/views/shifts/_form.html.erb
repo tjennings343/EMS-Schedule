@@ -1,0 +1,12 @@
+<h1>Create a Shift</h1>
+
+<%= form_for (@shift) do |f| %>
+    <%= truck_id_field(@shift) %><br>
+    <%= f.label :shift_name %>
+    <%= f.text_field :shift_name %><br>
+    <%= f.label :shift_date %>
+    <%= f.text_field :shift_date %><br>  
+    <%= f.submit "Create Shift" %>
+
+<% end %>
+

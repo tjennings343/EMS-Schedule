@@ -10,6 +10,7 @@ class CaptainsController < ApplicationController
 
     def show
         @captain = Captain.find_by_id(params[:id])
+        @shifts = @captain.shifts
         redirect_to '/' if !@captain
     end
 

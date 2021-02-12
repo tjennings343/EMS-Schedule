@@ -1,0 +1,9 @@
+<h1>Create a Truck</h1>
+
+<%= form_for (@truck) do |f| %>
+    <%= f.label :unit_number %>
+    <%= f.text_field :unit_number %><br>
+    
+    <%= f.submit "Create Truck" %>
+
+<% end %>
