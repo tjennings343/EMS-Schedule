@@ -1,4 +1,5 @@
 class ShiftsController < ApplicationController
+    before_action :set_shift, only: [:destroy, :update, :show, :edit]
 
 
     def index
@@ -14,7 +15,7 @@ class ShiftsController < ApplicationController
     end
 
     def show
-        @shift = Shift.find_by_id(params[:id])
+        @truck = Truck.find_by(params[:truck_id])
     end
 
     def create
@@ -27,10 +28,28 @@ class ShiftsController < ApplicationController
         end
     end
 
+    def edit
+
+    end
+
+    def update
+        @shift.update(shift_params)
+        redirect_to shift_path(@shoe)
+    end
+
+    def destroy
+        @shift.destroy
+        redirect_to shifts_path
+    end
+
 
     private
 
     def shift_params
         params.require(:shift).permit(:shift_name, :shift_date, :truck_id, truck_attributes: [:unit_number])
+    end
+
+    def set_shift
+        @shift = Shift.find(params[:id])
     end
 end

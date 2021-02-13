@@ -1,8 +1,12 @@
 <h1><%= @truck.unit_number %> Shifts</h1>
 <%= link_to "New Shift", new_truck_shift_path(@truck) %>
 <% @truck.shifts.each do |s| %>
-<h4><%= s.shift_name %></h4>
+<h4><%= link_to s.shift_name, shift_path(s) %></h4>
 <% end %>
+
+<p><%= link_to('Delete Truck', truck_path(@truck), method: 'delete') %></p>
+
+
 
 
 

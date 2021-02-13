@@ -1,9 +1,5 @@
 class CaptainsController < ApplicationController
 
-    def index
-        @captains = Captain.all
-    end
-
     def new
         @captain = Captain.new
     end

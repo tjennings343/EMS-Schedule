@@ -1,6 +1,6 @@
 <h1>Calendar</h1>
 
 <% @shifts.each do |s| %>
-<h4><%= s.shift_name %></h4>
+<h4><%= link_to s.shift_name, shift_path(s) %></h4>
 <h4><%= s.shift_date %></h4>
 <% end %>

@@ -1,11 +1,11 @@
 module ApplicationHelper
 
-    def logged_in?
-        !!current_user
+    def current_user
+        @current_user ||= Captain.find_by(id: session[:captain_id]) if session[:captain_id]
     end
 
-    def current_user
-        Captain.find_by(id: session[:captain_id])
+    def logged_in?
+        !!current_user
     end
 
 end

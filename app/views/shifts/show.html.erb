@@ -1,1 +1,7 @@
-<%= @shift.shift_name %>
+<h1><%= @shift.shift_name %></h1>
+
+<p><%= @shift.shift_date %></p>
+<p><%= @truck.unit_number %>
+<p><%= link_to('Delete Shift', shift_path(@shift), method: 'delete') %></p>
+<p><%= link_to('Edit Shift' , edit_shift_path(@shift))%>
+

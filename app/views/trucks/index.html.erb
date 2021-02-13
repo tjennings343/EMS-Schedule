@@ -2,7 +2,7 @@
 
 <% @trucks.each do |truck| %>
 <h4><%= link_to truck.unit_number, truck_path(truck) %></h4>
-<p><%= link_to truck.shifts, truck_shifts_path(truck) %></p>
 <% end %>
+<p><%= link_to 'Create a New Truck', new_truck_path %></p>
 
 

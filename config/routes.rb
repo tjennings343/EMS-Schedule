@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   
   resources :trucks do
-    resources :shifts, only: [:new, :index]
+    resources :shifts, only: [:new, :show]
   end
   resources :shifts
   resources :captains
