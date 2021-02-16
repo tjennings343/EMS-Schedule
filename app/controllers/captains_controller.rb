@@ -1,4 +1,6 @@
 class CaptainsController < ApplicationController
+    before_action :require_login
+
 
     def new
         @captain = Captain.new

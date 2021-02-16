@@ -1,12 +1,14 @@
 class ShiftsController < ApplicationController
     before_action :set_shift, only: [:destroy, :update, :show, :edit]
+    before_action :redirect_if_not_create, only: [:destroy, :update, :edit]
+    before_action :require_login
 
 
     def index
         if params[:truck_id]
             @shifts = Truck.find(params[:truck_id]).shifts
         else
-        @shifts = Shift.all
+        @shifts = Shift.all.ordered_by_date
         end
     end
 
@@ -51,5 +53,11 @@ class ShiftsController < ApplicationController
 
     def set_shift
         @shift = Shift.find(params[:id])
+    end
+
+    def redirect_if_not_create
+        if @shift.captain != current_user
+            redirect_to captain_path(current_user), alert: "you can't edit this"
+        end
     end
 end

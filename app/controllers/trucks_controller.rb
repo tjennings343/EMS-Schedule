@@ -1,4 +1,6 @@
 class TrucksController < ApplicationController
+    before_action :require_login
+
 
     def index
         @trucks = Truck.all
@@ -20,12 +22,6 @@ class TrucksController < ApplicationController
         else
             render :new
         end
-    end
-
-    def destroy
-        @truck = Truck.find(params[:id])
-        @truck.destroy
-        redirect_to trucks_path
     end
 
 
