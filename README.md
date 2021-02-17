@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+EMS-Schedule allows users to add/edit/create/delete shifts, and assign those shifts to a truck.
+Fork and clone this lab and use rails-s to get started.
+There are currently 6 trucks already seeded, you can add more within the app.
