@@ -23,7 +23,7 @@ class ShiftsController < ApplicationController
     def create
         @shift = Shift.new(shift_params)
         @shift.captain_id = session[:captain_id]
-        if @shift.save!
+        if @shift.save
             redirect_to shift_path(@shift)
         else
             render :new
@@ -57,7 +57,7 @@ class ShiftsController < ApplicationController
 
     def redirect_if_not_create
         if @shift.captain != current_user
-            redirect_to captain_path(current_user), alert: "you can't edit this"
+            redirect_to captain_path(current_user)
         end
     end
 end

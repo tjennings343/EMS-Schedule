@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/createaccount' => 'captains#new'
   delete '/logout' => 'sessions#destroy'
 
+  get '/auth/google_oauth2/callback' => 'sessions#omniauth'
   
   resources :trucks do
     resources :shifts, only: [:new, :show]

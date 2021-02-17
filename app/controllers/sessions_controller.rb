@@ -23,4 +23,16 @@ class SessionsController < ApplicationController
         redirect_to '/'
     end
 
+    def omniauth
+        @captain = Captain.google_omniauth_login(auth)
+        session[:captain_id] = @captain.id
+        redirect_to captain_path(@captain)  
+    end
+
+    private
+
+    def auth
+        request.env['omniauth.auth']
+    end
+
 end
